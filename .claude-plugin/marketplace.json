@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Marketplace pessoal com o pipeline de criação de jogos mobile",
-    "version": "2.0.0"
+    "version": "2.0.1"
   },
   "plugins": [
     {

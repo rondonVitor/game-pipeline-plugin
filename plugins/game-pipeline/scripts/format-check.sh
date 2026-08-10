@@ -15,8 +15,10 @@ fi
 FILE=$(printf '%s' "$FILE" | sed 's/\\\\/\//g; s/\\/\//g')
 
 if [[ "$FILE" == *.dart && -f "$FILE" ]]; then
-  # Via fvm quando o projeto esta pinado -- mesma versao do dev e do CI.
-  if command -v fvm >/dev/null 2>&1 && { [ -f ".fvmrc" ] || [ -f ".fvm/fvm_config.json" ]; }; then
+  # SDK pinado direto (o wrapper `fvm` pode segfaltar ao sair no Windows).
+  if [ -x ".fvm/flutter_sdk/bin/dart" ]; then
+    .fvm/flutter_sdk/bin/dart format "$FILE" >/dev/null 2>&1 || true
+  elif command -v fvm >/dev/null 2>&1 && { [ -f ".fvmrc" ] || [ -f ".fvm/fvm_config.json" ]; }; then
     fvm dart format "$FILE" >/dev/null 2>&1 || true
   else
     dart format "$FILE" >/dev/null 2>&1 || true

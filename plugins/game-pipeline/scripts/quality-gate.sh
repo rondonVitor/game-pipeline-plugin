@@ -21,10 +21,14 @@ if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   [ "$TOCOU_DART" -eq 1 ] || exit 0
 fi
 
-# Sempre via fvm quando disponivel e projeto pinado -- garante que dev e CI
-# (Codemagic) usem a MESMA versao do Flutter.
+# Versao pinada do projeto -- dev e CI (Codemagic) na MESMA versao.
+# PREFERE o SDK em .fvm/flutter_sdk em vez do wrapper `fvm`: em Windows o wrapper
+# pode segfaltar ao sair (exit 139) mesmo com o comando interno OK, o que reprova
+# o gate para sempre. O SDK apontado pelo fvm e a mesma versao e sai limpo.
 FLUTTER="flutter"; DART="dart"
-if command -v fvm >/dev/null 2>&1 && { [ -f ".fvmrc" ] || [ -f ".fvm/fvm_config.json" ]; }; then
+if [ -x ".fvm/flutter_sdk/bin/flutter" ]; then
+  FLUTTER=".fvm/flutter_sdk/bin/flutter"; DART=".fvm/flutter_sdk/bin/dart"
+elif command -v fvm >/dev/null 2>&1 && { [ -f ".fvmrc" ] || [ -f ".fvm/fvm_config.json" ]; }; then
   FLUTTER="fvm flutter"; DART="fvm dart"
 fi
 

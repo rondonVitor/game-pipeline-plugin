@@ -1,7 +1,7 @@
 {
   "name": "game-pipeline",
   "description": "Pipeline ponta a ponta para jogos mobile em Flutter: pesquisa+ideação com projeção de monetização, Design System via Claude Design (MCP), roadmap vivo, ciclo por feature com gates de qualidade e review adversarial, e o caminho completo até as lojas — site+legal (privacidade/termos), domínio+Cloudflare, CI Codemagic, ficha/ASO e screenshots.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": {
     "name": "Givox Mobile",
     "email": "givoxmobile@gmail.com"
