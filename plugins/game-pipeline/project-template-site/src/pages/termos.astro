@@ -1,0 +1,93 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+// TEMPLATE DE TERMOS DE USO para jogo mobile com itens virtuais, ads e IAP.
+// Remova as seções de recursos que o app não tem.
+---
+<LegalLayout
+  title="Termos de Uso — {{NOME_DO_APP}}"
+  description="Termos de Uso do aplicativo {{NOME_DO_APP}}, desenvolvido por {{DESENVOLVEDOR}}. Android e iOS."
+  path="/termos"
+  heading="Termos de Uso"
+  updated="Última atualização: {{DATA_ATUALIZACAO}} · Vigência imediata"
+>
+  <p class="lead">Estes Termos de Uso ("Termos") regem o uso do aplicativo <strong>{{NOME_DO_APP}}</strong> ("aplicativo", "app", "Jogo"), disponível para Android e iOS, desenvolvido por <strong>{{DESENVOLVEDOR}}</strong> ("nós"). Ao baixar, acessar ou usar o app, você concorda com estes Termos. Se não concordar, não utilize o aplicativo.</p>
+
+  <div class="callout">
+    <strong>Em resumo:</strong> o jogo é seu para jogar, mas não para copiar, revender ou modificar. Moedas e itens virtuais são parte do jogo e não têm valor em dinheiro real. Compras são processadas pela loja. Fazemos o nosso melhor, mas o app é fornecido "no estado em que se encontra".
+  </div>
+
+  <div class="toc">
+    <h4>Nesta página</h4>
+    <ol>
+      <li><a href="#aceitacao">Aceitação</a></li>
+      <li><a href="#licenca">Licença de uso</a></li>
+      <li><a href="#conta">Conta e nuvem</a></li>
+      <li><a href="#compras">Compras no app</a></li>
+      <li><a href="#itens">Itens virtuais</a></li>
+      <li><a href="#anuncios">Anúncios</a></li>
+      <li><a href="#conduta">Conduta do usuário</a></li>
+      <li><a href="#propriedade">Propriedade intelectual</a></li>
+      <li><a href="#garantias">Isenção de garantias</a></li>
+      <li><a href="#responsabilidade">Limitação de responsabilidade</a></li>
+      <li><a href="#alteracoes">Alterações</a></li>
+      <li><a href="#rescisao">Rescisão</a></li>
+      <li><a href="#lei">Lei aplicável e foro</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ol>
+  </div>
+
+  <h2 id="aceitacao">1. Aceitação dos Termos</h2>
+  <p>Ao instalar ou usar o aplicativo, você declara ter lido e concordado com estes Termos e com a <a href="/privacidade">Política de Privacidade</a>. Estes Termos podem ser complementados pelas regras da loja por meio da qual o app foi obtido.</p>
+
+  <h2 id="licenca">2. Licença de uso</h2>
+  <p>Concedemos a você uma licença limitada, pessoal, não exclusiva, intransferível e revogável para instalar e usar o aplicativo em dispositivos de sua propriedade ou controle, exclusivamente para fins pessoais e não comerciais.</p>
+
+  <h2 id="conta">3. Conta e salvamento na nuvem</h2>
+  <p>O aplicativo não exige criação de conta para jogar. Opcionalmente, você pode conectar sua conta do Google Play Games (Android) ou do Apple Game Center (iOS) para salvar o progresso na nuvem. O uso desse recurso está sujeito aos termos do Google ou da Apple.</p>
+
+  <h2 id="compras">4. Compras no aplicativo</h2>
+  <p>O app pode oferecer compras opcionais. Todas são processadas e cobradas pela loja correspondente — <strong>Google Play</strong> ou <strong>Apple App Store</strong> — sujeitas aos termos da respectiva loja. Não processamos pagamentos nem armazenamos dados do seu cartão.</p>
+  <p>Pedidos de reembolso seguem a política da loja e a legislação de defesa do consumidor aplicável.</p>
+
+  <h2 id="itens">5. Itens virtuais e moedas</h2>
+  <ul>
+    <li>Moedas e demais itens do jogo são <strong>bens virtuais licenciados</strong>, sem valor monetário real e não conversíveis em dinheiro ou bens fora do aplicativo.</li>
+    <li>Você não adquire propriedade sobre esses itens, apenas licença de uso dentro do Jogo.</li>
+    <li>Podemos, de forma razoável, ajustar, equilibrar, adicionar ou remover itens e mecânicas para balanceamento, correção ou evolução do produto.</li>
+    <li>Itens não utilizados não são reembolsáveis, salvo quando exigido por lei ou pela política da loja.</li>
+  </ul>
+
+  <h2 id="anuncios">6. Anúncios</h2>
+  <p>A versão gratuita pode exibir anúncios de redes de terceiros (Google AdMob). Alguns são opcionais e recompensados — exibidos apenas quando você escolhe assisti-los. A compra de remoção de anúncios elimina banners e intersticiais, podendo manter os recompensados opcionais. O conteúdo dos anúncios é de responsabilidade dos anunciantes e das redes.</p>
+
+  <h2 id="conduta">7. Conduta do usuário</h2>
+  <p>Você concorda em não:</p>
+  <ul>
+    <li>copiar, modificar, traduzir, fazer engenharia reversa, descompilar ou extrair o código-fonte, salvo quando permitido por lei;</li>
+    <li>distribuir, sublicenciar, alugar, vender ou explorar comercialmente o app ou seu conteúdo;</li>
+    <li>usar trapaças, automações ou exploits para alterar o funcionamento do jogo, moedas ou progresso;</li>
+    <li>usar o aplicativo para finalidade ilícita ou que viole direitos de terceiros.</li>
+  </ul>
+
+  <h2 id="propriedade">8. Propriedade intelectual</h2>
+  <p>Todo o conteúdo do aplicativo — nome, marca, logotipo, textos, ilustrações, design, código e demais elementos — pertence a {{DESENVOLVEDOR}} ou aos seus licenciadores e é protegido pela legislação de propriedade intelectual.</p>
+
+  <h2 id="garantias">9. Isenção de garantias</h2>
+  <p>O aplicativo é fornecido "no estado em que se encontra" e "conforme disponível", sem garantias de qualquer natureza. Recursos que dependem de terceiros (anúncios, compras, nuvem) podem ficar indisponíveis por motivos alheios ao nosso controle.</p>
+
+  <h2 id="responsabilidade">10. Limitação de responsabilidade</h2>
+  <p>Na máxima extensão permitida pela lei aplicável, {{DESENVOLVEDOR}} não será responsável por danos indiretos, incidentais, especiais ou consequentes decorrentes do uso ou da impossibilidade de uso do aplicativo, incluindo perda de progresso ou de itens virtuais. Nada nestes Termos limita direitos que não possam ser afastados pela legislação de defesa do consumidor.</p>
+
+  <h2 id="alteracoes">11. Alterações destes Termos e do app</h2>
+  <p>Podemos atualizar estes Termos e o aplicativo a qualquer momento, inclusive adicionando, alterando ou descontinuando recursos. A data de "Última atualização" indica a versão vigente.</p>
+
+  <h2 id="rescisao">12. Rescisão</h2>
+  <p>Você pode encerrar o uso desinstalando o aplicativo. Podemos suspender ou encerrar sua licença em caso de violação destes Termos. Disposições sobre propriedade intelectual, garantias e responsabilidade permanecem válidas após o término.</p>
+
+  <h2 id="lei">13. Lei aplicável e foro</h2>
+  <p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro do domicílio do usuário, conforme facultado pela legislação de defesa do consumidor.</p>
+
+  <h2 id="contato">14. Contato</h2>
+  <p>Dúvidas sobre estes Termos: <a href="mailto:{{EMAIL_SUPORTE}}">{{EMAIL_SUPORTE}}</a>.</p>
+  <p style="margin-top:18px;font-size:13.5px;color:var(--brand-ink-mute)">{{DESENVOLVEDOR}} · {{NOME_DO_APP}} · {{DOMINIO}} · Brasil. Veja também a <a href="/privacidade">Política de Privacidade</a>.</p>
+</LegalLayout>

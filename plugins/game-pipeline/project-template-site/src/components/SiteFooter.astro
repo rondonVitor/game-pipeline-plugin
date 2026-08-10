@@ -1,0 +1,23 @@
+---
+// Rodapé compartilhado. Os links legais são OBRIGATÓRIOS nas duas lojas.
+const ano = new Date().getFullYear();
+---
+<footer>
+  <div class="inner">
+    <p class="dev">© {ano} {{DESENVOLVEDOR}} · {{NOME_DO_APP}}</p>
+    <nav>
+      <a href="/privacidade">Política de Privacidade</a>
+      <a href="/termos">Termos de Uso</a>
+      <a href="mailto:{{EMAIL_SUPORTE}}">Suporte</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  footer { border-top: 1px solid var(--brand-line); background: var(--brand-bg-sunk); }
+  .inner { max-width: 1040px; margin: 0 auto; padding: 26px 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+  .dev { font-size: 13.5px; color: var(--brand-ink-mute); font-weight: 600; }
+  nav { display: flex; flex-wrap: wrap; gap: 18px; }
+  nav a { font-size: 13.5px; font-weight: 700; color: var(--brand-ink-soft); }
+  nav a:hover { color: var(--brand-primary); }
+</style>

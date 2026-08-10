@@ -1,0 +1,32 @@
+---
+// Botões das lojas. href fica '#baixar' (estado "Em breve") até as fichas
+// existirem; troque pelos links reais no lançamento:
+//   Play:  https://play.google.com/store/apps/details?id={{APPLICATION_ID_ANDROID}}
+//   Apple: https://apps.apple.com/app/id{{APP_APPLE_ID}}
+interface Props { center?: boolean }
+const { center = false } = Astro.props;
+---
+<div class:list={['storebtns', { center }]}>
+  <a class="store" href="#baixar" aria-label="Baixar na Google Play (em breve)">
+    <span class="sglyph">▶</span>
+    <span class="stxt"><span class="s1">Baixar na</span><span class="s2">Google Play</span></span>
+    <span class="soon">Em breve</span>
+  </a>
+  <a class="store" href="#baixar" aria-label="Baixar na App Store (em breve)">
+    <span class="sglyph"></span>
+    <span class="stxt"><span class="s1">Baixar na</span><span class="s2">App Store</span></span>
+    <span class="soon">Em breve</span>
+  </a>
+</div>
+
+<style>
+  .storebtns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .storebtns.center { justify-content: center; }
+  .store { display: inline-flex; align-items: center; gap: 11px; background: var(--brand-ink); color: var(--brand-on-primary); border-radius: var(--brand-radius-md); padding: 11px 20px; min-width: 200px; transition: transform .12s ease; }
+  .store:hover { transform: translateY(-1px); }
+  .sglyph { font-size: 22px; line-height: 1; }
+  .stxt { display: flex; flex-direction: column; line-height: 1.1; }
+  .s1 { font-weight: 600; font-size: 11px; opacity: .82; font-family: var(--brand-font-text); }
+  .s2 { font-family: var(--brand-font-display); font-weight: 800; font-size: 16px; }
+  .soon { margin-left: auto; font-weight: 800; font-size: 9.5px; letter-spacing: .6px; text-transform: uppercase; background: rgba(255, 255, 255, .18); padding: 3px 7px; border-radius: 999px; }
+</style>

@@ -1,0 +1,5 @@
+# app-ads.txt — autoriza quem pode vender o inventário de anúncios deste app.
+# Cole aqui a linha EXATA que o AdMob fornece (Apps → app → app-ads.txt).
+# Formato: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# Enquanto estiver vazio (só comentários), o crawler do AdMob acusa "not found".
+# Ver docs/setup-manual/03-ads-admob.md, passo 7.

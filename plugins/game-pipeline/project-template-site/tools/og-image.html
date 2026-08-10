@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Gerador de og-image (1200×630)</title>
+<!--
+  Como usar:
+  1. Ajuste os textos/cores abaixo (ou deixe a skill /site-legal preencher).
+  2. Abra este arquivo no navegador.
+  3. Capture a área de 1200×630 (DevTools › Ctrl+Shift+P › "Capture node
+     screenshot" com o #og selecionado) e salve como public/og-image.png.
+  Alternativa: gerar a arte no Claude Design e exportar em 1200×630.
+-->
+<style>
+  body { margin: 0; display: grid; place-items: center; min-height: 100vh; background: #222; font-family: system-ui, sans-serif; }
+  #og {
+    width: 1200px; height: 630px; display: flex; flex-direction: column;
+    justify-content: center; gap: 18px; padding: 90px;
+    background: {{COR_FUNDO}}; color: {{COR_TEXTO}}; box-sizing: border-box;
+  }
+  .eyebrow { font-size: 26px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: {{COR_PRIMARIA}}; }
+  h1 { font-size: 86px; line-height: 1.02; margin: 0; letter-spacing: -2px; }
+  p { font-size: 34px; margin: 0; opacity: .8; }
+  .foot { margin-top: 26px; font-size: 24px; font-weight: 700; color: {{COR_PRIMARIA}}; }
+</style>
+</head>
+<body>
+  <div id="og">
+    <div class="eyebrow">{{EYEBROW}}</div>
+    <h1>{{NOME_DO_APP}}</h1>
+    <p>{{TAGLINE}}</p>
+    <div class="foot">{{DOMINIO}}</div>
+  </div>
+</body>
+</html>

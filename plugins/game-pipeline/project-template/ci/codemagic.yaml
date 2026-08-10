@@ -1,0 +1,90 @@
+# Base do CI (Codemagic) — copiar para a RAIZ do projeto como `codemagic.yaml`.
+# Ver docs/setup-manual/09-codemagic-ci.md. Ajuste <PLACEHOLDERS> antes de usar.
+#
+# A versão do Flutter TEM que ser a mesma do `.fvmrc` do projeto — dev e CI na
+# mesma versão, senão o build passa num e quebra no outro.
+
+definitions:
+  env_versions: &env_versions
+    flutter: <VERSAO_DO_FVMRC>   # ex.: 3.41.6
+    xcode: latest
+    cocoapods: default
+
+workflows:
+  android-release:
+    name: Android — AAB (faixa interna)
+    max_build_duration: 60
+    environment:
+      <<: *env_versions
+      groups:
+        - google_play          # CM_KEYSTORE, CM_KEYSTORE_PASSWORD, CM_KEY_ALIAS,
+                               # CM_KEY_PASSWORD, GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+      vars:
+        PACKAGE_NAME: "<APPLICATION_ID_ANDROID>"
+    scripts:
+      - name: Keystore
+        script: |
+          echo $CM_KEYSTORE | base64 --decode > $CM_BUILD_DIR/android/app/upload.jks
+          cat >> $CM_BUILD_DIR/android/key.properties <<EOF
+          storePassword=$CM_KEYSTORE_PASSWORD
+          keyPassword=$CM_KEY_PASSWORD
+          keyAlias=$CM_KEY_ALIAS
+          storeFile=upload.jks
+          EOF
+      - name: Dependências
+        script: flutter pub get
+      - name: Analyze + testes (mesmo gate do dev)
+        script: |
+          flutter analyze
+          flutter test
+      - name: Build AAB
+        script: flutter build appbundle --release
+    artifacts:
+      - build/**/outputs/**/*.aab
+      - build/**/outputs/**/mapping.txt
+    publishing:
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
+        submit_as_draft: true
+
+  ios-release:
+    name: iOS — IPA (TestFlight)
+    max_build_duration: 90
+    instance_type: mac_mini_m2
+    integrations:
+      app_store_connect: <NOME_DA_INTEGRACAO_NO_CODEMAGIC>
+    environment:
+      <<: *env_versions
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: <BUNDLE_ID_IOS>
+      vars:
+        APP_STORE_APPLE_ID: <APP_APPLE_ID_NUMERICO>
+    scripts:
+      - name: Dependências
+        script: flutter pub get
+      - name: Analyze + testes
+        script: |
+          flutter analyze
+          flutter test
+      - name: Perfis de assinatura
+        script: |
+          keychain initialize
+          app-store-connect fetch-signing-files "<BUNDLE_ID_IOS>" \
+            --type IOS_APP_STORE --create
+          keychain add-certificates
+          xcode-project use-profiles
+      - name: Build IPA
+        # ExportOptions.plist versionado: com entitlement de iCloud container o
+        # export exige iCloudContainerEnvironment=Production (doc 05).
+        script: |
+          flutter build ipa --release \
+            --export-options-plist=ios/ExportOptions.plist
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true

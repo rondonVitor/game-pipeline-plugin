@@ -1,0 +1,7 @@
+<!-- Placeholder: substituir pelo símbolo da marca (exportado/derivado do
+     Claude Design). Mantém as cores dos tokens até lá. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="16" fill="{{COR_PRIMARIA}}"/>
+  <text x="32" y="44" font-family="system-ui, sans-serif" font-size="36"
+        font-weight="800" text-anchor="middle" fill="{{COR_SOBRE_PRIMARIA}}">{{INICIAL}}</text>
+</svg>

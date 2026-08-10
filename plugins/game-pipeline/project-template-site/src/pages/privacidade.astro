@@ -1,0 +1,115 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+// TEMPLATE DE POLÍTICA DE PRIVACIDADE (LGPD) para jogo mobile offline-first.
+// Ajuste os blocos conforme o app REALMENTE tiver: ads, IAP, cloud save,
+// notificações. Declarar o que não existe é tão errado quanto omitir o que
+// existe — o texto tem que bater com o Data Safety (Play) e o App Privacy (Apple).
+---
+<LegalLayout
+  title="Política de Privacidade — {{NOME_DO_APP}}"
+  description="Política de Privacidade do aplicativo {{NOME_DO_APP}}, desenvolvido por {{DESENVOLVEDOR}}. Android e iOS."
+  path="/privacidade"
+  heading="Política de Privacidade"
+  updated="Última atualização: {{DATA_ATUALIZACAO}} · Vigência imediata"
+>
+  <p class="lead">Esta Política de Privacidade explica como o aplicativo <strong>{{NOME_DO_APP}}</strong> ("aplicativo", "app", "Jogo"), disponível para Android e iOS, trata informações de quem o utiliza. O app é <strong>offline por natureza</strong>: não possui servidor próprio, não exige cadastro e não coleta dados pessoais diretamente. Alguns recursos opcionais (anúncios, compras e salvamento na nuvem) usam serviços de terceiros (Google e Apple), que podem tratar dados conforme descrito abaixo.</p>
+
+  <div class="callout">
+    <strong>Resumo rápido:</strong> não criamos conta, não pedimos nome, e-mail ou telefone, e não temos banco de dados sobre você. Seu progresso fica no seu aparelho. Dados só são tratados por terceiros (Google e Apple) se você usar anúncios, compras ou o salvamento na nuvem.
+  </div>
+
+  <div class="toc">
+    <h4>Nesta página</h4>
+    <ol>
+      <li><a href="#controlador">Quem somos</a></li>
+      <li><a href="#coleta">Dados que tratamos</a></li>
+      <li><a href="#terceiros">Serviços de terceiros</a></li>
+      <li><a href="#finalidades">Finalidades e base legal</a></li>
+      <li><a href="#permissoes">Permissões do app</a></li>
+      <li><a href="#compartilhamento">Compartilhamento</a></li>
+      <li><a href="#retencao">Retenção e segurança</a></li>
+      <li><a href="#internacional">Transferência internacional</a></li>
+      <li><a href="#direitos">Seus direitos (LGPD)</a></li>
+      <li><a href="#criancas">Crianças e adolescentes</a></li>
+      <li><a href="#alteracoes">Alterações</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ol>
+  </div>
+
+  <h2 id="controlador">1. Quem somos (controlador)</h2>
+  <p>O aplicativo é desenvolvido e mantido por <strong>{{DESENVOLVEDOR}}</strong> ("nós"), responsável pelo tratamento dos dados descritos nesta Política, na condição de controlador nos termos da Lei nº 13.709/2018 (LGPD).</p>
+  <p>Contato do responsável pelo tratamento de dados: <a href="mailto:{{EMAIL_SUPORTE}}">{{EMAIL_SUPORTE}}</a>.</p>
+
+  <h2 id="coleta">2. Dados que tratamos</h2>
+  <h3>2.1. Dados armazenados apenas no seu dispositivo</h3>
+  <p>Seu progresso de jogo — {{LISTA_DADOS_LOCAIS}} — é salvo <strong>localmente no seu aparelho</strong>. Esses dados não são enviados para nós e não saem do dispositivo, exceto se você ativar o salvamento na nuvem (item 3.3).</p>
+
+  <h3>2.2. Dados tratados por serviços de terceiros</h3>
+  <p>Quando você usa recursos que dependem de internet, provedores terceiros (Google e Apple) podem coletar e tratar dados:</p>
+  <table class="data">
+    <tr><th>Recurso</th><th>Dados que podem ser tratados</th><th>Por quem</th></tr>
+    <tr><td>Anúncios</td><td>Identificador de publicidade (Advertising ID no Android / IDFA no iOS), endereço IP aproximado, informações do dispositivo e do sistema, interações com o anúncio</td><td>Google AdMob</td></tr>
+    <tr><td>Compras no app</td><td>Confirmação da compra e status de propriedade do item. Dados de pagamento são tratados pela loja, não por nós</td><td>Google Play / Apple App Store</td></tr>
+    <tr><td>Salvamento na nuvem (opcional)</td><td>Identificador da sua conta de jogos e o arquivo de save</td><td>Google Play Games / Apple Game Center (iCloud)</td></tr>
+    <tr><td>Métricas agregadas</td><td>Estatísticas anônimas de instalação, falhas (crashes) e desempenho</td><td>Google Play Console / App Store Connect / AdMob</td></tr>
+  </table>
+  <p>Não coletamos localização precisa (GPS), agenda de contatos, fotos, microfone ou câmera.</p>
+
+  <h2 id="terceiros">3. Serviços de terceiros</h2>
+
+  <h3>3.1. Google AdMob (anúncios)</h3>
+  <p>O app exibe anúncios por meio do Google AdMob para se manter gratuito. O AdMob pode usar o identificador de publicidade do dispositivo (Advertising ID / IDFA) e informações técnicas para exibir e medir anúncios. Os anúncios podem ser personalizados ou não personalizados, conforme o seu consentimento e as configurações do dispositivo.</p>
+  <ul>
+    <li><strong>No Android:</strong> você pode redefinir o identificador de publicidade e desativar a personalização em Configurações › Google › Anúncios.</li>
+    <li><strong>No iOS:</strong> a exibição de anúncios personalizados depende da sua autorização no aviso de <em>App Tracking Transparency (ATT)</em>. Você pode conceder ou revogar em Ajustes › Privacidade e Segurança › Rastreamento. Se não autorizar, os anúncios continuam, porém não personalizados.</li>
+  </ul>
+  <p>Política do Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+  <h3>3.2. Compras no aplicativo</h3>
+  <p>Compras opcionais são processadas integralmente pela loja correspondente (Google Play no Android; Apple App Store no iOS). Não recebemos nem armazenamos dados do seu meio de pagamento; recebemos apenas a confirmação de que a compra foi concluída, para liberar o item.</p>
+
+  <h3>3.3. Salvamento na nuvem (opcional)</h3>
+  <p>Se você optar por conectar sua conta de jogos, seu progresso poderá ser salvo na nuvem e restaurado em outro aparelho — pelo <strong>Google Play Games</strong> no Android ou pelo <strong>Apple Game Center / iCloud</strong> no iOS. O recurso é opcional e controlado por você; a autenticação e o armazenamento são feitos pelo Google ou pela Apple.</p>
+
+  <h3>3.4. Notificações locais</h3>
+  <p>O app pode enviar lembretes <strong>gerados localmente no seu dispositivo</strong>. Não há coleta de dados para isso, e você pode desativá-los a qualquer momento nas configurações do sistema ou do app.</p>
+
+  <h2 id="finalidades">4. Finalidades e base legal</h2>
+  <ul>
+    <li><strong>Executar o jogo e salvar seu progresso</strong> — execução do serviço solicitado e legítimo interesse (art. 7º, IX).</li>
+    <li><strong>Exibir anúncios personalizados</strong> — consentimento (art. 7º, I), revogável nas configurações do dispositivo (incluindo o ATT no iOS).</li>
+    <li><strong>Exibir anúncios não personalizados e medir desempenho</strong> — legítimo interesse, com dados mínimos.</li>
+    <li><strong>Processar compras</strong> — execução de contrato (art. 7º, V).</li>
+    <li><strong>Salvar na nuvem</strong> — consentimento, ao conectar sua conta.</li>
+  </ul>
+
+  <h2 id="permissoes">5. Permissões do aplicativo</h2>
+  <ul>
+    <li><strong>Internet</strong> — necessária apenas para anúncios, compras e nuvem. O jogo funciona offline; sem internet, os anúncios simplesmente não aparecem.</li>
+    <li><strong>Notificações</strong> — lembretes locais. Opcional.</li>
+    <li><strong>Rastreamento (iOS)</strong> — solicitado via ATT apenas para personalizar anúncios; recusar não impede o uso do jogo.</li>
+  </ul>
+
+  <h2 id="compartilhamento">6. Compartilhamento de dados</h2>
+  <p>Não vendemos seus dados e não temos base de dados própria de usuários. O tratamento descrito é realizado pelos provedores citados (Google AdMob, Google Play, Google Play Games, Apple App Store, Apple Game Center), cada um sob sua própria política. Poderemos divulgar informações se exigido por lei ou autoridade competente.</p>
+
+  <h2 id="retencao">7. Retenção e segurança</h2>
+  <p>Os dados de progresso permanecem no seu dispositivo enquanto o app estiver instalado; ao desinstalá-lo, são removidos. Se usou o salvamento na nuvem, o save fica associado à sua conta Google ou Apple até que você o exclua. Dados tratados por terceiros seguem a retenção de cada provedor. Adotamos medidas técnicas razoáveis, mas nenhum método é 100% seguro.</p>
+
+  <h2 id="internacional">8. Transferência internacional</h2>
+  <p>Google e Apple podem tratar dados em servidores fora do Brasil, conforme as salvaguardas exigidas pela legislação aplicável.</p>
+
+  <h2 id="direitos">9. Seus direitos (LGPD)</h2>
+  <p>Você pode exercer os direitos previstos na LGPD: confirmação da existência de tratamento; acesso; correção; anonimização, bloqueio ou eliminação; portabilidade; informação sobre compartilhamento; e revogação do consentimento.</p>
+  <p>Como grande parte dos dados fica no seu dispositivo ou sob sua conta Google/Apple, muitos direitos você exerce diretamente: desinstalando o app, limpando os dados, redefinindo o identificador de publicidade ou gerenciando o save na sua conta. Para solicitações a nós: <a href="mailto:{{EMAIL_SUPORTE}}">{{EMAIL_SUPORTE}}</a>.</p>
+
+  <h2 id="criancas">10. Crianças e adolescentes</h2>
+  <p>O app é destinado ao <strong>público geral</strong> e não é direcionado a crianças. Não coletamos intencionalmente dados de menores. Recomendamos supervisão dos responsáveis quanto ao uso e a compras.</p>
+
+  <h2 id="alteracoes">11. Alterações desta Política</h2>
+  <p>Podemos atualizar esta Política periodicamente. A data de "Última atualização" indica a versão vigente. O uso contínuo após a atualização representa concordância com a versão revisada.</p>
+
+  <h2 id="contato">12. Contato</h2>
+  <p>Dúvidas, solicitações ou reclamações sobre privacidade: <a href="mailto:{{EMAIL_SUPORTE}}">{{EMAIL_SUPORTE}}</a>.</p>
+  <p style="margin-top:18px;font-size:13.5px;color:var(--brand-ink-mute)">{{DESENVOLVEDOR}} · {{NOME_DO_APP}} · {{DOMINIO}} · Brasil. Veja também os <a href="/termos">Termos de Uso</a>.</p>
+</LegalLayout>

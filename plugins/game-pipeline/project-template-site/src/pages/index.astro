@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StoreButtons from '../components/StoreButtons.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+// JSON-LD: sem `aggregateRating` até existirem avaliações REAIS nas lojas —
+// schema enganoso é penalizado. Ao ter nota, adicione aqui.
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': ['VideoGame', 'MobileApplication'],
+    name: '{{NOME_DO_APP}}',
+    description: '{{DESCRICAO_CURTA}}',
+    applicationCategory: 'GameApplication',
+    operatingSystem: 'Android, iOS',
+    inLanguage: 'pt-BR',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'BRL' },
+    author: { '@type': 'Organization', name: '{{DESENVOLVEDOR}}' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: '{{DESENVOLVEDOR}}',
+    url: 'https://{{DOMINIO}}',
+    email: '{{EMAIL_SUPORTE}}',
+  },
+];
+
+const destaques = [
+  { t: '{{DESTAQUE_1_TITULO}}', d: '{{DESTAQUE_1_TEXTO}}' },
+  { t: '{{DESTAQUE_2_TITULO}}', d: '{{DESTAQUE_2_TEXTO}}' },
+  { t: '{{DESTAQUE_3_TITULO}}', d: '{{DESTAQUE_3_TEXTO}}' },
+];
+---
+<BaseLayout
+  title="{{NOME_DO_APP}} — {{TAGLINE}}"
+  description="{{DESCRICAO_CURTA}}"
+  path="/"
+  jsonLd={jsonLd}
+>
+  <header class="site-header">
+    <div class="nav">
+      <a class="brand" href="/">{{NOME_DO_APP}}</a>
+      <nav class="links">
+        <a href="#sobre">Sobre</a>
+        <a href="/privacidade">Privacidade</a>
+        <a href="/termos">Termos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">{{EYEBROW}}</p>
+      <h1>{{TITULO_HERO}}</h1>
+      <p class="sub">{{SUBTITULO_HERO}}</p>
+      <StoreButtons />
+    </section>
+
+    <section id="sobre" class="cards">
+      {destaques.map((d) => (
+        <article class="card">
+          <h2>{d.t}</h2>
+          <p>{d.d}</p>
+        </article>
+      ))}
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .site-header { border-bottom: 1px solid var(--brand-line); background: var(--brand-bg); position: sticky; top: 0; z-index: 10; }
+  .nav { max-width: 1040px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-family: var(--brand-font-display); font-weight: 800; font-size: 17px; color: var(--brand-ink); }
+  .links { display: flex; gap: 20px; }
+  .links a { font-weight: 700; font-size: 14px; color: var(--brand-ink-soft); }
+  .links a:hover { color: var(--brand-primary); }
+
+  main { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .hero { padding: 72px 0 48px; max-width: 720px; }
+  .eyebrow { font-weight: 800; font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand-primary); }
+  h1 { font-weight: 800; font-size: 52px; line-height: 1.03; letter-spacing: -1px; margin: 12px 0 14px; }
+  .sub { font-size: 18px; color: var(--brand-ink-soft); }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; padding-bottom: 72px; }
+  .card { background: var(--brand-surface); border: 1.5px solid var(--brand-line); border-radius: var(--brand-radius-lg); padding: 26px; box-shadow: var(--brand-shadow-card); }
+  .card h2 { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+  .card p { font-size: 15px; color: var(--brand-ink-soft); }
+
+  @media (max-width: 640px) { h1 { font-size: 36px; } .hero { padding: 48px 0 32px; } }
+</style>

@@ -1,0 +1,18 @@
+{
+  "name": "game-pipeline-marketplace",
+  "owner": {
+    "name": "Givox Mobile",
+    "email": "givoxmobile@gmail.com"
+  },
+  "metadata": {
+    "description": "Marketplace pessoal com o pipeline de criação de jogos mobile",
+    "version": "2.0.0"
+  },
+  "plugins": [
+    {
+      "name": "game-pipeline",
+      "source": "./plugins/game-pipeline",
+      "description": "Pipeline ponta a ponta para jogos mobile em Flutter — da ideia à ficha publicada nas lojas"
+    }
+  ]
+}

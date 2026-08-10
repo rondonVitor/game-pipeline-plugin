@@ -1,0 +1,75 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  heading: string;
+  updated: string;
+}
+const { title, description, path, heading, updated } = Astro.props;
+---
+<BaseLayout title={title} description={description} path={path}>
+  <header class="site-header">
+    <div class="nav">
+      <a class="brand" href="/">{{NOME_DO_APP}}</a>
+      <a class="back" href="/">← Início</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Documento legal</p>
+      <h1>{heading}</h1>
+      <p class="updated">{updated}</p>
+    </div>
+    <article><slot /></article>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .wrap { width: 100%; max-width: 820px; margin: 0 auto; padding: 0 24px; }
+  .site-header { background: var(--brand-bg); border-bottom: 1px solid var(--brand-line); position: sticky; top: 0; z-index: 10; }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 820px; margin: 0 auto; padding: 0 24px; }
+  .brand { font-family: var(--brand-font-display); font-weight: 800; font-size: 17px; color: var(--brand-ink); }
+  .back { font-weight: 700; font-size: 14px; color: var(--brand-ink-soft); }
+  .back:hover { color: var(--brand-primary); }
+
+  .hero { padding: 52px 0 30px; }
+  .eyebrow { font-weight: 800; font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand-primary); }
+  h1 { font-weight: 800; font-size: 40px; letter-spacing: -.5px; margin: 10px 0 8px; line-height: 1.05; }
+  .updated { font-weight: 700; font-size: 13.5px; color: var(--brand-ink-mute); }
+
+  article { background: var(--brand-surface); border: 1.5px solid var(--brand-line); border-radius: var(--brand-radius-lg); padding: 40px 44px; box-shadow: var(--brand-shadow-card); margin-bottom: 60px; line-height: 1.62; }
+
+  /* O slot recebe HTML simples, por isso :global */
+  article :global(h2) { font-family: var(--brand-font-display); font-weight: 800; font-size: 22px; margin: 36px 0 12px; }
+  article :global(h2:first-child) { margin-top: 0; }
+  article :global(h3) { font-family: var(--brand-font-display); font-weight: 700; font-size: 16.5px; margin: 22px 0 8px; }
+  article :global(p) { font-size: 15px; margin: 10px 0; }
+  article :global(ul) { margin: 10px 0 10px 4px; padding-left: 22px; }
+  article :global(li) { font-size: 15px; margin: 8px 0; }
+  article :global(strong) { color: var(--brand-ink); }
+  article :global(a) { color: var(--brand-primary-strong); font-weight: 700; }
+  article :global(a:hover) { text-decoration: underline; }
+  article :global(.lead) { font-size: 16px; }
+  article :global(.callout) { background: var(--brand-primary-soft); border: 1.5px solid var(--brand-primary-tint); border-radius: var(--brand-radius-md); padding: 16px 18px; margin: 18px 0; font-size: 14.5px; }
+  article :global(.callout strong) { color: var(--brand-primary-strong); }
+  article :global(table.data) { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  article :global(table.data th), article :global(table.data td) { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--brand-line); vertical-align: top; }
+  article :global(table.data th) { font-family: var(--brand-font-display); font-weight: 800; font-size: 12.5px; text-transform: uppercase; letter-spacing: .5px; color: var(--brand-ink-mute); background: var(--brand-bg-sunk); }
+  article :global(.toc) { background: var(--brand-bg-sunk); border-radius: var(--brand-radius-md); padding: 20px 24px; }
+  article :global(.toc h4) { font-weight: 800; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--brand-ink-mute); margin-bottom: 12px; }
+  article :global(.toc ol) { columns: 2; column-gap: 28px; margin-left: 16px; }
+  article :global(.toc li) { font-size: 14px; margin: 5px 0; }
+
+  @media (max-width: 640px) {
+    article { padding: 26px 22px; }
+    h1 { font-size: 30px; }
+    article :global(.toc ol) { columns: 1; }
+  }
+</style>
